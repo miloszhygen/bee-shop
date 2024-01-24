@@ -1,10 +1,10 @@
 "use client";
 
-import NavBar from "../parts/NavBar";
-import CookieMessage from "../parts/CookieMessage";
-import Footer from "../parts/Footer";
+import NavBar from "@/components/parts/NavBar";
+import CookieMessage from "@/components/parts/CookieMessage";
+import Footer from "@/components/parts/Footer";
 
-export const PageLayout = ({ children }) => {
+const PageLayout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-grow p-2 ">
@@ -18,3 +18,5 @@ export const PageLayout = ({ children }) => {
     </div>
   );
 };
+
+export default PageLayout;
