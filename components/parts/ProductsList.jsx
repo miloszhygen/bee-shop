@@ -29,19 +29,27 @@
 
 */
 
+import { useContext } from "react";
 import Image from "next/image";
 
+import BasketContext from "@/context/basketContext";
+
 const Product = ({ product }) => {
+  const { basketProducts, setBasketProducts } = useContext(BasketContext);
   const { images, name, price } = product;
 
+  const handleAddToBasket = (name) => {
+    setBasketProducts([...basketProducts, { name }]);
+  };
   // Take the first image from the array
   const image = images[0];
   return (
-    <>
+    <div>
       <Image src={image} alt={name} width={400} height={300} priority />
       <h3>{name}</h3>
       <p>{price / 100} Kr</p>
-    </>
+      <button onClick={() => handleAddToBasket(name)}>ADD</button>
+    </div>
   );
 };
 
@@ -49,7 +57,7 @@ export default function ProductsList({ products }) {
   return (
     <div>
       {products.map((product) => (
-        <Product product={product} />
+        <Product product={product} key={product?.id} />
       ))}
     </div>
   );
