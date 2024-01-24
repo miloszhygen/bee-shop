@@ -45,7 +45,7 @@ const getCookie = (name) => {
 };
 
 const CookieMessage = () => {
-  const [hasSeenMessage, setHasSeenMessage] = useState(false);
+  const [hasSeenMessage, setHasSeenMessage] = useState(true);
 
   useEffect(() => {
     // Check if the cookie exists
@@ -57,7 +57,7 @@ const CookieMessage = () => {
     if (!seenMessage) {
       setHasSeenMessage(false);
     }
-  }, [hasSeenMessage]);
+  }, []);
 
   const handleDismiss = () => {
     // Set the cookie to indicate the message has been seen
