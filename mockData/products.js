@@ -1,4 +1,4 @@
-export const products = {
+export const mockProductsList = {
   object: "list",
   data: [
     {
@@ -30,4 +30,4 @@ export const products = {
   url: "/v1/products",
 };
 
-export default products;
+export default mockProductsList;
