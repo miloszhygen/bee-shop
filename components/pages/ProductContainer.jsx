@@ -1,34 +1,11 @@
 /*
-  Product data structure
 
-  {
-    id: 'prod_PQvPpUEDyLZgwn',
-    object: 'product',
-    active: true,
-    attributes: [],
-    created: 1706091581,
-    default_price: 'price_1Oc3YXI4AFOXjzTClsRL4cRn',
-    description: 'Harvested from wildflowers in the Alpine meadows.',
-    features: [],
-    images: [
-      'https://files.stripe.com/links/MDB8YWNjdF8xT0dwc1RJNEFGT1hqelRDfGZsX3Rlc3RfQnZIcHEzNVV3bDlta210RDBLOTFiRXli00JA35wqUI'
-    ],
-    livemode: false,
-    metadata: {},
-    name: 'Alpine Blossom Honey',
-    package_dimensions: null,
-    shippable: null,
-    statement_descriptor: null,
-    tax_code: 'txcd_20030000',
-    type: 'service',
-    unit_label: null,
-    updated: 1706091582,
-    url: null,
-    price: {
-      unit_amount: 12000,
-      ...
-    }
-  }
+    <ProductContainer
+      productId={params.productId}
+      fetchProductById={fetchProductById}
+    />
+
+    fetchProductById => function that fetches product data from the API
 
 */
 
@@ -37,18 +14,19 @@
 import { useEffect, useState } from "react";
 
 import Product from "@/components/parts/Product";
+import Basket from "@/components/parts/Basket";
 
 export default function ProductContainer({ productId, fetchProductById }) {
   const [product, setProduct] = useState(null);
 
-  async function getProductData() {
+  async function getProductDataById() {
     const productData = await fetchProductById(productId);
     setProduct(productData);
   }
 
   // FETCH PRODUCT BY ID
   useEffect(() => {
-    getProductData();
+    getProductDataById();
   }, []);
 
   if (!product) {
@@ -56,7 +34,8 @@ export default function ProductContainer({ productId, fetchProductById }) {
   }
   return (
     <div>
-      <Product product={product} />
+      <Basket />
+      <Product product={product} rich />
     </div>
   );
 }
