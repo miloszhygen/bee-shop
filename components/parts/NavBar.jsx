@@ -12,7 +12,10 @@ const NavBar = () => {
             <span className="sr-only">Bee Delight</span>
           </Link>
         </div>
-        <div className="flex items-center">Login</div>
+        <div className="flex justify-between px-2 h-10">
+          <div className="flex items-center mr-2">Login</div>
+          <div className="flex items-center">Basket</div>
+        </div>
       </nav>
     </header>
   );
