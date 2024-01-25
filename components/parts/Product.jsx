@@ -24,10 +24,14 @@
       "unit_label": null,
       "updated": 1706091582,
       "url": null,
-      "price": 12000
+      "price": {
+        unit_amount: 12000,
+        ...
+      }
     }
 
 */
+import Link from "next/link";
 
 import { useContext, useState } from "react";
 import Image from "next/image";
@@ -36,7 +40,7 @@ import BasketContext from "@/context/basketContext";
 
 const Product = ({ product }) => {
   // Product values
-  const { images, name, price } = product;
+  const { images, name, price, id } = product;
   // Take the first image from the array
   const image = images[0];
 
@@ -75,9 +79,11 @@ const Product = ({ product }) => {
 
   return (
     <div>
-      <Image src={image} alt={name} width={400} height={300} priority />
-      <h3>{name}</h3>
-      <p>{price?.unit_amount / 100} Kr</p>
+      <Link href={`/product/${id}`}>
+        <Image src={image} alt={name} width={400} height={300} priority />
+        <h3>{name}</h3>
+        <p>{price?.unit_amount / 100} Kr</p>
+      </Link>
       <div className="flex items-center space-x-2">
         <button
           className={`px-3 py-2 border border-gray-300 rounded ${
