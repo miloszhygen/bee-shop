@@ -12,7 +12,7 @@ export async function fetchAllProducts() {
     );
     return {
       ...product,
-      price: price?.unit_amount,
+      price,
     };
   });
 

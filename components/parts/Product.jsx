@@ -77,7 +77,7 @@ const Product = ({ product }) => {
     <div>
       <Image src={image} alt={name} width={400} height={300} priority />
       <h3>{name}</h3>
-      <p>{price / 100} Kr</p>
+      <p>{price?.unit_amount / 100} Kr</p>
       <div className="flex items-center space-x-2">
         <button
           className={`px-3 py-2 border border-gray-300 rounded ${
