@@ -1,3 +1,7 @@
+/*
+   <ShopContainer fetchAllProducts={fetchAllProducts} />
+*/
+
 "use client";
 
 import { useEffect, useState } from "react";
