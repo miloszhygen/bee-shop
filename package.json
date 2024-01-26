@@ -7,10 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "release": "npx bump --commit '🚀 Release v' --tag --push package.json package.json"
   },
   "dependencies": {
     "@jsdevtools/version-bump-prompt": "^6.1.0",
+    "@testing-library/jest-dom": "^6.3.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
