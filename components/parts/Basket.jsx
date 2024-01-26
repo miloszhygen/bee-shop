@@ -1,17 +1,44 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import BasketContext from "@/context/basketContext";
 
+import {
+  getBasketFromLocal,
+  updateProductInBasketInLocal,
+} from "@/utils/localStorage";
+
 export default function Basket() {
-  const { basketProducts, setBasketProducts } = useContext(BasketContext);
+  const { basketProductsContext, setBasketProductsContext } =
+    useContext(BasketContext);
+
+  const [products, setProducts] = useState(basketProductsContext);
+
+  // Initial render, check if basketProductsContext is empty
+  // If empty, get basket from local storage
+  // If not empty, set products from context in state
+  useEffect(() => {
+    if (!basketProductsContext || basketProductsContext?.length === 0) {
+      const basketFromLocal = getBasketFromLocal();
+      setBasketProductsContext(basketFromLocal);
+      setProducts(basketFromLocal);
+    }
+  }, []);
+
+  // If changes in basketProductsContext, update products in state
+  useEffect(() => {
+    setProducts(basketProductsContext);
+  }, [basketProductsContext]);
 
   const removeProduct = (prod) => {
     const confirm = window.confirm(
       `Are you sure you want to remove "${prod?.name}" from the basket?`
     );
     if (confirm) {
-      setBasketProducts(
-        basketProducts.filter((product) => product.id !== prod.id)
+      const updatedProducts = basketProductsContext.filter(
+        (product) => product.id !== prod.id
       );
+
+      setBasketProductsContext(updatedProducts);
+      updateProductInBasketInLocal(updatedProducts);
     }
   };
 
@@ -19,7 +46,7 @@ export default function Basket() {
     <div>
       <h3>🧺 BASKET</h3>
       <ul>
-        {basketProducts.map((product) => (
+        {products.map((product) => (
           <li key={product?.id}>
             {product?.count} x {product?.name} (
             {product?.price?.unit_amount / 100} {"NOK"}) |{" "}
@@ -29,7 +56,7 @@ export default function Basket() {
         ))}
       </ul>
       TOTAL:{" "}
-      {basketProducts.reduce(
+      {products.reduce(
         (acc, curr) => acc + curr.price?.unit_amount * curr.count,
         0
       ) / 100}{" "}

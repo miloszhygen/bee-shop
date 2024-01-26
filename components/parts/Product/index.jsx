@@ -16,9 +16,14 @@
 
 */
 
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import BasketContext from "@/context/basketContext";
+
+import {
+  addToBasketInLocal,
+  updateProductInBasketInLocal,
+} from "@/utils/localStorage";
 
 import ProductCardLink from "@/components/parts/Product/ProductCardLink";
 import ProductCardRich from "@/components/parts/Product/ProductCardRich";
@@ -58,8 +63,10 @@ const Product = ({ product, rich }) => {
 
   const handleAddToBasket = (prod) => {
     // If the product is not in the basket, add it
-    if (!basketProducts.some((product) => product.id === prod.id)) {
-      setBasketProducts([...basketProducts, { ...prod, count }]);
+    if (!basketProductsContext.some((product) => product.id === prod.id)) {
+      const updatedProducts = { ...prod, count };
+      setBasketProductsContext([...basketProductsContext, updatedProducts]);
+      addToBasketInLocal(updatedProducts);
       return;
     }
     // If the product is in the basket, update the count
@@ -70,6 +77,7 @@ const Product = ({ product, rich }) => {
       return product;
     });
     setBasketProductsContext(productCountUpdated);
+    updateProductInBasketInLocal(productCountUpdated);
   };
 
   return (
