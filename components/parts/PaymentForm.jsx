@@ -58,13 +58,14 @@ const PaymentForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex text-black">
+    <form onSubmit={handleSubmit} className="flex flex-col  space-y-4">
       <label>
         Name on Card:
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="text-black"
           required
         />
       </label>
@@ -74,6 +75,7 @@ const PaymentForm = () => {
           type="text"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}
+          className="text-black"
           required
         />
       </label>
@@ -83,6 +85,7 @@ const PaymentForm = () => {
           type="text"
           value={expiryDate}
           onChange={(e) => setExpiryDate(e.target.value)}
+          className="text-black"
           required
         />
       </label>
@@ -92,6 +95,7 @@ const PaymentForm = () => {
           type="text"
           value={cvc}
           onChange={(e) => setCvc(e.target.value)}
+          className="text-black"
           required
         />
       </label>
