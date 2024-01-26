@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 const BasketContext = createContext({
-  basketProducts: [],
-  setBasketProducts: () => {},
+  basketProductsContext: [],
+  setBasketProductsContext: () => {},
 });
 
 export default BasketContext;

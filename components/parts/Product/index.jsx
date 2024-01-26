@@ -24,15 +24,25 @@ import ProductCardLink from "@/components/parts/Product/ProductCardLink";
 import ProductCardRich from "@/components/parts/Product/ProductCardRich";
 
 const Product = ({ product, rich }) => {
-  const { basketProducts, setBasketProducts } = useContext(BasketContext);
+  const { basketProductsContext, setBasketProductsContext } =
+    useContext(BasketContext);
 
-  const basketProduct = basketProducts.find((prod) => prod.id === product?.id);
+  const basketProduct = basketProductsContext.find(
+    (prod) => prod.id === product?.id
+  );
 
   // Product values
   const { count: productCount } = basketProduct ?? product;
 
   // State
   const [count, setCount] = useState(productCount ?? 1);
+
+  // Listen for changes in basketProductsContext
+  useEffect(() => {
+    if (basketProduct) {
+      setCount(basketProduct.count);
+    }
+  }, [basketProduct]);
 
   const incrementCount = () => {
     if (count < 10) {
@@ -53,13 +63,13 @@ const Product = ({ product, rich }) => {
       return;
     }
     // If the product is in the basket, update the count
-    const productCountUpdated = basketProducts.map((product) => {
+    const productCountUpdated = basketProductsContext.map((product) => {
       if (product.id === prod.id) {
         return { ...product, count };
       }
       return product;
     });
-    setBasketProducts(productCountUpdated);
+    setBasketProductsContext(productCountUpdated);
   };
 
   return (

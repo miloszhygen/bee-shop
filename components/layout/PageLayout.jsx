@@ -10,10 +10,12 @@ import CookieMessage from "@/components/parts/CookieMessage";
 import Footer from "@/components/parts/Footer";
 
 const PageLayout = ({ children }) => {
-  const [basketProducts, setBasketProducts] = useState([]);
+  const [basketProductsContext, setBasketProductsContext] = useState([]);
 
   return (
-    <BasketContext.Provider value={{ basketProducts, setBasketProducts }}>
+    <BasketContext.Provider
+      value={{ basketProductsContext, setBasketProductsContext }}
+    >
       <div className="min-h-screen flex flex-col">
         <div className="flex-grow p-2 ">
           <NavBar />
