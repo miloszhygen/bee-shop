@@ -6,11 +6,14 @@ import {
   updateProductInBasketInLocal,
 } from "@/utils/localStorage";
 
+import PaymentForm from "./PaymentForm";
+
 export default function Basket() {
   const { basketProductsContext, setBasketProductsContext } =
     useContext(BasketContext);
 
   const [products, setProducts] = useState(basketProductsContext);
+  const [showPaymentForm, setShowPaymentForm] = useState(false);
 
   // Initial render, check if basketProductsContext is empty
   // If empty, get basket from local storage
@@ -42,6 +45,9 @@ export default function Basket() {
     }
   };
 
+  const togglePaymentForm = () => {
+    setShowPaymentForm(!showPaymentForm);
+  };
   return (
     <div>
       <h3>🧺 BASKET</h3>
@@ -61,8 +67,17 @@ export default function Basket() {
         0
       ) / 100}{" "}
       <div>
-        <button>Go to payment</button>
+        <button
+          className={` ${
+            products.length === 0 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={products.length === 0}
+          onClick={togglePaymentForm}
+        >
+          Go to payment
+        </button>
       </div>
+      {showPaymentForm && <PaymentForm />}
     </div>
   );
 }
