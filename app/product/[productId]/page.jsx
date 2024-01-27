@@ -1,13 +1,13 @@
 import ProductContainer from "@/components/pages/ProductContainer.jsx";
 
-import fetchProductById from "@/actions/fetchProductById.js";
+import fetchProductByIdAction from "@/actions/fetchProductByIdAction.js";
 
 export default function ProductPage({ params }) {
   return (
     <>
       <ProductContainer
         productId={params.productId}
-        fetchProductById={fetchProductById}
+        fetchProductByIdAction={fetchProductByIdAction}
       />
     </>
   );

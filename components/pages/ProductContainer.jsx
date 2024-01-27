@@ -2,10 +2,10 @@
 
     <ProductContainer
       productId={params.productId}
-      fetchProductById={fetchProductById}
+      fetchProductByIdAction={fetchProductByIdAction}
     />
 
-    fetchProductById => function that fetches product data from the API
+    fetchProductByIdAction => function that fetches product data from the API
 
 */
 
@@ -16,11 +16,14 @@ import { useEffect, useState } from "react";
 import Product from "@/components/parts/Product";
 import Basket from "@/components/parts/Basket";
 
-export default function ProductContainer({ productId, fetchProductById }) {
+export default function ProductContainer({
+  productId,
+  fetchProductByIdAction,
+}) {
   const [product, setProduct] = useState(null);
 
   async function getProductDataById() {
-    const productData = await fetchProductById(productId);
+    const productData = await fetchProductByIdAction(productId);
     setProduct(productData);
   }
 

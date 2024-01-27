@@ -3,7 +3,7 @@
 import mockProduct from "@/mockData/product";
 import mockPricesList from "@/mockData/prices";
 
-export default async function fetchProductById(productId) {
+export default async function fetchProductByIdAction(productId) {
   // Fetch data based on the productId
   // const stripeData = fetch(`https://api.stripe.com/v1/products/${productId}`, {
   //   method: "GET",

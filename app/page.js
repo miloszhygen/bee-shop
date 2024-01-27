@@ -1,11 +1,11 @@
-import { fetchAllProducts } from "@/actions/fetchAllProducts";
+import { fetchAllProductsAction } from "@/actions/fetchAllProductsAction";
 
 import ShopContainer from "@/components/pages/ShopContainer";
 
 export default function Home() {
   return (
     <>
-      <ShopContainer fetchAllProducts={fetchAllProducts} />
+      <ShopContainer fetchAllProductsAction={fetchAllProductsAction} />
     </>
   );
 }
