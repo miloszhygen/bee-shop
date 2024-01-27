@@ -3,7 +3,7 @@
 import mockProductsList from "@/mockData/products";
 import mockPricesList from "@/mockData/prices";
 
-export async function fetchAllProductsAction() {
+export default async function fetchAllProductsAction() {
   const productsResponse = mockProductsList.data;
 
   const products = productsResponse.map((product) => {
