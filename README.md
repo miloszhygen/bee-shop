@@ -105,3 +105,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - stripe
 - mongodb
 - auth0
+
+
+# Versions:
+0.1.0 -> initial commit
+0.1.1 -> show products, show product details, add to basket logic
+0.1.2 -> added localstorage logic and "golden path" flow from selecting product to payment and thank you page
+0.1.3 -> fixed some build issues on vercel
+0.1.4 -> Filter on category
+0.1.5 -> Add some nice components from tailwindui
