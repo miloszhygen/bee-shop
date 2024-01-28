@@ -48,7 +48,7 @@ const ProductCardLink = ({
             </h3>
           </div>
           <p className="text-sm font-medium text-gray-900">
-            {price?.unit_amount / 100} Kr
+            {price?.unit_amount / 100} NOK
           </p>
         </div>
         <div className="flex justify-between text-black mt-4">
