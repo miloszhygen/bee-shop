@@ -17,9 +17,9 @@ const PageLayout = ({ children }) => {
       value={{ basketProductsContext, setBasketProductsContext }}
     >
       <div className="min-h-screen flex flex-col">
-        <div className="flex-grow p-2 ">
+        <div className="flex-grow ">
           <NavBar />
-          <main className="pt-10 container p-2 max-w-screen-xl bg-slate-800">
+          <main className="pt-10 container p-0 max-w-screen-xl">
             {children}
           </main>
         </div>
