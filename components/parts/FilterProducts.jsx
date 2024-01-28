@@ -56,7 +56,7 @@ const FilterProducts = ({ onFilterHandler }) => {
   };
 
   return (
-    <div className="mb-8">
+    <div className="mb-8 text-black">
       <p>Filter and search</p>
       <div className="flex ">
         <div className="mr-8">
