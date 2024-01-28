@@ -1,12 +1,21 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { useEffect, useContext } from "react";
+
+import BasketContext from "@/context/basketContext";
 
 const ThankYouPage = () => {
+  const { setShowBasketContext } = useContext(BasketContext);
   const searchParams = useSearchParams();
 
   // TODO: FETCH ORDER NUMBER from database
   const orderNumber = searchParams.get("orderNumber");
+
+  // Hide basket
+  useEffect(() => {
+    setShowBasketContext(false);
+  }, []);
 
   return (
     <div className="thank-you-page">

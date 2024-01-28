@@ -12,6 +12,8 @@
     "release": "npx bump --commit '🚀 Release v' --tag --push package.json package.json"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
     "@jsdevtools/version-bump-prompt": "^6.1.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@testing-library/jest-dom": "^6.3.0",

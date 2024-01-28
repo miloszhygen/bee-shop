@@ -16,6 +16,9 @@ const PaymentForm = () => {
   const [expiryDate, setExpiryDate] = useState("");
   const [cvc, setCvc] = useState("");
 
+  const inputStyles =
+    "block rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -58,48 +61,52 @@ const PaymentForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col  space-y-4">
-      <label>
+    <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
+      <label className="block">
         Name on Card:
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="text-black"
+          className={`${inputStyles} w-full`}
           required
         />
       </label>
-      <label>
+      <label className="block">
         Card Number:
         <input
           type="text"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}
-          className="text-black"
+          className={`${inputStyles} w-full`}
           required
         />
       </label>
-      <label>
+      <label className="block">
         Expiry Date (MM/YY):
         <input
           type="text"
           value={expiryDate}
           onChange={(e) => setExpiryDate(e.target.value)}
-          className="text-black"
+          className={`${inputStyles} w-full`}
           required
         />
       </label>
-      <label>
+      <label className="block">
         CVC:
         <input
           type="text"
           value={cvc}
           onChange={(e) => setCvc(e.target.value)}
-          className="text-black"
+          className={`${inputStyles} `}
           required
         />
       </label>
-      <button disabled={loading} type="submit">
+      <button
+        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-70"
+        disabled={loading}
+        type="submit"
+      >
         {!loading ? "Confirm order" : "Sending order..."}
       </button>
     </form>

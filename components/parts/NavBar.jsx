@@ -35,10 +35,10 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="flex justify-between px-2 h-10">
-          <div className="flex items-center mr-2">Login</div>
+          {/* <div className="flex items-center mr-2">Login</div> */}
           <div className="flex items-center">
             <button onClick={showBasket}>
-              Basket {basketProductsContext.length}
+              Basket ({basketProductsContext.length})
             </button>
           </div>
         </div>

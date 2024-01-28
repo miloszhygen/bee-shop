@@ -29,8 +29,11 @@ import ProductCardLink from "@/components/parts/Product/ProductCardLink";
 import ProductCardRich from "@/components/parts/Product/ProductCardRich";
 
 const Product = ({ product, rich }) => {
-  const { basketProductsContext, setBasketProductsContext } =
-    useContext(BasketContext);
+  const {
+    basketProductsContext,
+    setBasketProductsContext,
+    setShowBasketContext,
+  } = useContext(BasketContext);
 
   const basketProduct = basketProductsContext.find(
     (prod) => prod.id === product?.id
@@ -41,6 +44,11 @@ const Product = ({ product, rich }) => {
 
   // State
   const [count, setCount] = useState(productCount ?? 1);
+
+  // Close basket if open and user has clicked a product from the list of products in basket
+  useEffect(() => {
+    setShowBasketContext(false);
+  }, []);
 
   // Listen for changes in basketProductsContext
   useEffect(() => {
