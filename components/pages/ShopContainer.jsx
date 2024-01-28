@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 import FilterProducts from "../parts/FilterProducts";
 import ProductsList from "@/components/parts/ProductsList";
-import Basket from "@/components/parts/Basket";
 
 export default function ShopContainer({
   fetchAllProductsAction,
