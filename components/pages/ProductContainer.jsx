@@ -14,7 +14,6 @@
 import { useEffect, useState } from "react";
 
 import Product from "@/components/parts/Product";
-import Basket from "@/components/parts/Basket";
 
 export default function ProductContainer({
   productId,
@@ -37,7 +36,6 @@ export default function ProductContainer({
   }
   return (
     <div>
-      <Basket />
       <Product product={product} rich />
     </div>
   );
