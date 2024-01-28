@@ -31,16 +31,27 @@ Node version `18`  is required to run this project. You can use [nvm](https://gi
 
 ```
 
+
+
+# Vercel
+
+- Staging: [bee-shop-git-develop-milosz.vercel.app](bee-shop-git-develop-milosz.vercel.app)
+
+
 # Testing
 This project uses jest for testing. To run tests use `npm run test` or `npm run test:watch` to run tests in watch mode.
 
 
 # Deployment
 
+- versioning
+
+
+
 ## Staging
 
 ## Production
-
+...
 
 
 
@@ -73,6 +84,12 @@ Stripe
 ```
 
 
+Filtering from stripe
+
+
+  encodeURIComponent("name:'alpine' OR active:'true'");@
+
+  https://api.stripe.com/v1/products/search?query=name%3A'alpine'%20OR%20active%3A'true'
 
 
 # Tech used
@@ -80,3 +97,11 @@ Stripe
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
+- github actions
+- tailwindcss
+- nextjs
+- vercel
+
+- stripe
+- mongodb
+- auth0
