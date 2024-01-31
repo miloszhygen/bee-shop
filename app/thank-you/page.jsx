@@ -5,8 +5,11 @@ import { useEffect, useContext } from "react";
 
 import BasketContext from "@/context/basketContext";
 
+import { updateProductInBasketInLocal } from "@/utils/localStorage";
+
 const ThankYouPage = () => {
-  const { setShowBasketContext } = useContext(BasketContext);
+  const { setShowBasketContext, setBasketProductsContext } =
+    useContext(BasketContext);
   const searchParams = useSearchParams();
 
   // TODO: FETCH ORDER NUMBER from database
@@ -14,6 +17,8 @@ const ThankYouPage = () => {
 
   // Hide basket
   useEffect(() => {
+    updateProductInBasketInLocal([]);
+    setBasketProductsContext([]);
     setShowBasketContext(false);
   }, []);
 
