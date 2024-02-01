@@ -108,8 +108,6 @@ export default function Basket() {
   };
 
   const setClose = () => {
-    setShowPaymentForm(false);
-
     setShowBasketContext(true);
   };
   return (
