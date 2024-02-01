@@ -12,14 +12,54 @@ Bee Delight
 # ====================
 
 
+PAYMENT:
+
+- how to connect user to payment?
+  - Can I use the session id or do something in the session endpoint??
+
+- create a webhook to retrieve the payment and add to user data in database
+  - for now just log the payment data to console
+    - rest comes when login and db is in place
+
+- move endpoint URLS to env variables
+
+- create a failed payment page
+
+- show payment details in thank you page - possible?
+
+- add text on basket under payment button
+  - "By clicking the button you will be redirected to Stripe to complete the payment"
+
+- ask aidan about sending emails
+  - stripe can send an confirmaiton email -> find out how
+
+
+- when creating a pament session add user id to success_url so that it is possible to fetch transaction data for the user? -> use a uuid from nano that is added to the metadata and later added to db for easy fetching? -> when fetching for a transaction: if no user id use uuid?
+    - ex -> adding the `payment_intent` and use it in the database then fetch it when on the thank you page?
+    - this means that a transactions table has to be created in the database
+      - if user is logged in add user_id to the transaction data, use later to filter all transactions for a user
+    - Product data in db
+        name
+        sessionStamp
+        product id
+        price id
+        qty
+        price pr unit
+        total
+        total | user_id
+- add a 3 second timeout on the thank you page to make sure that the webhook has time to update the order on the user
+  - fetch transaction data based on sessionStamp
+
+END PAYMENT
+
 - add some tailwindui components
   - make sure a11y is taken care of
-  - basket in header
+  x basket in header
   - components
     x products list
     - filter component
     x product page
-    - basket
+    x basket
     - thank you page
     - header
 
@@ -34,15 +74,20 @@ Bee Delight
 
 - add node version to pkg.json
 
-
 - create some more products
+
+- Loading/spinner component
+    - When getting products
+    - When searching
+    - When ordering
 
 ----------------
 
-- research: how to do a full payment circle with stripe?
+- the payment flow
+  - if user is not logged in or dont want to register -> how can user see order - link / email?
+  - user logged in -> show order in profile page
 
-- show basket in header with number of items
-- Show how many items are added to basket in the header
+
 - make sure UU is taken care of
 
 - create a config file
@@ -92,6 +137,17 @@ Bee Delight
 
 - favicons
 
+- Add comments on payment on how to integrate
+  -> Do the same for search and fetch products
+
+- create an error message component -> see Basket component
+
+- add env variable when on test env. Show hide components
+  -> basket small red text above "Go to payment" button
+
+- all alert calls should be a component
+
+
 # Release -> prod
 - create shop tenant in auth0 using the propper name of the app
 - create images for "not found" and error page
@@ -119,6 +175,12 @@ Bee Delight
 #       DONE
 #
 # ====================
+x research: how to do a full payment circle with stripe?
+  x test the logic
+
+x show basket in header with number of items
+x Show how many items are added to basket in the header
+
 x Create logic for handling selected product and add to basket
 x create a product page
 x fake the payment process
