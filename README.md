@@ -92,6 +92,43 @@ Filtering from stripe
   https://api.stripe.com/v1/products/search?query=name%3A'alpine'%20OR%20active%3A'true'
 
 
+
+# Stripe
+[DOC](https://stripe.com/docs/payments/checkout/pricing-table#embed)
+
+TEST CARD: 4242424242424242
+
+Stripe cli: https://github.com/stripe/stripe-cli
+
+```
+  # Proxy for stripe webhook
+
+  stripe listen --forward-to http://localhost:3000/api/payment-webhook
+
+  # Listen for logs
+
+  stripe logs tail
+
+
+  # Trigger a test webhook not using app
+  stripe trigger customer.subscription.created
+
+```
+
+## Payment flow
+- user selects product
+- user initiates payment (client) -> session is created on the server from a POST request from the client 
+  -> sessionStamp is added to success url and metadata 
+- client gets session id and redirects to checkout page from Stripe
+- user completes payment on stripe
+- user is redirected to thank you page
+  -> transaction data is fetched based on the sessionStamp in the return url
+    -> a 3 second timeout is added to the thank you page to make sure that the webhook has time to update the order on the user 
+- server gets webhook from stripe and updates order on user in the database
+- user can see order in profile page
+
+
+
 # Tech used
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
