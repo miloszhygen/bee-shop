@@ -1,3 +1,7 @@
+/*
+    URL: ${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout
+*/
+
 import { NextResponse } from "next/server";
 import { nanoid } from "nanoid";
 
