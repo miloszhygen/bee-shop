@@ -4,7 +4,7 @@ const mockProduct = {
   active: true,
   attributes: [],
   created: 1706091581,
-  default_price: "price_1Oc3YXI4AFOXjzTClsRL4cRn",
+  default_price: "price_1OeDV7I4AFOXjzTChrCuNyDq",
   description: "Harvested from wildflowers in the Alpine meadows.",
   features: [],
   images: [
