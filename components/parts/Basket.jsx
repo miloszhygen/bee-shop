@@ -255,6 +255,18 @@ export default function Basket() {
                           >
                             Go to payment
                           </button>
+                          <p className="mt-2 text-center text-sm text-gray-600">
+                            By clicking the button you will be redirected to{" "}
+                            <a
+                              href="https://stripe.com"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:underline"
+                            >
+                              Stripe
+                            </a>{" "}
+                            to complete the payment.
+                          </p>
                         </div>
                       </div>
                     </div>
