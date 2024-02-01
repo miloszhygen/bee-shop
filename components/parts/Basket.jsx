@@ -12,9 +12,14 @@ import {
   updateProductInBasketInLocal,
 } from "@/utils/localStorage";
 
-import PaymentForm from "./PaymentForm";
+// STRIPE
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 export default function Basket() {
+  // Context values
   const {
     basketProductsContext,
     setBasketProductsContext,
@@ -22,8 +27,9 @@ export default function Basket() {
     setShowBasketContext,
   } = useContext(BasketContext);
 
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [products, setProducts] = useState(basketProductsContext);
-  const [showPaymentForm, setShowPaymentForm] = useState(false);
 
   // Initial render, check if basketProductsContext is empty
   // If empty, get basket from local storage
@@ -55,8 +61,46 @@ export default function Basket() {
     }
   };
 
-  const togglePaymentForm = () => {
-    setShowPaymentForm(!showPaymentForm);
+  const togglePaymentForm = async () => {
+    setLoading(true);
+    // products mapped to lineItems -> price and quantity
+    const lineItems = products.map((product) => ({
+      price: product?.default_price,
+      quantity: product?.count,
+    }));
+
+    // If no lineItems show error message
+    if (lineItems.length === 0) {
+      alert("No products in basket");
+      return;
+    }
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          lineItems,
+        }),
+      }
+    );
+
+    const session = await res.json();
+    // Redirect to Stripe Checkout
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+    if (error) {
+      // Handle any errors
+      console.log({ error });
+      // TODO: create an error message component
+      setErrorMessage(error);
+    }
+    setLoading(false);
   };
 
   const setOpen = () => {
@@ -190,33 +234,27 @@ export default function Basket() {
                           </p>
                         </div>
 
-                        {!showPaymentForm && (
-                          <div className="mt-6">
-                            <button
-                              className={`flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-70 ${
-                                products.length === 0
-                                  ? "opacity-50 cursor-not-allowed"
-                                  : ""
-                              }`}
-                              disabled={products.length === 0}
-                              onClick={togglePaymentForm}
-                            >
-                              Go to payment
-                            </button>
-                          </div>
-                        )}
-                        <div className="mt-6  text-gray-500">
-                          {showPaymentForm && (
-                            <>
-                              <div className="pb-4">
-                                <small>
-                                  For testing purposes write whatever you want
-                                  in to the payment fields
-                                </small>
-                              </div>
-                              <PaymentForm />
-                            </>
-                          )}
+                        <div className="mt-6 text-red-500">
+                          <small>
+                            When doing a test payment, use the following:
+                            <br />
+                            Card number: 4242 4242 4242 4242
+                            <br />
+                            For testing purposes write whatever you want in to
+                            the payment fields "Exp date" and CVC
+                          </small>
+                          {/* TODO: {errorMessage} */}
+                          <button
+                            className={`mt-4 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-70 ${
+                              products.length === 0
+                                ? "opacity-50 cursor-not-allowed"
+                                : ""
+                            }`}
+                            disabled={products.length === 0 || loading}
+                            onClick={togglePaymentForm}
+                          >
+                            Go to payment
+                          </button>
                         </div>
                       </div>
                     </div>
