@@ -1,11 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 import { Fragment, useContext, useEffect, useState } from "react";
 import BasketContext from "@/context/basketContext";
+
+import { TEST } from "@/config";
 
 import {
   getBasketFromLocal,
@@ -19,6 +22,8 @@ const stripePromise = loadStripe(
 );
 
 export default function Basket() {
+  const router = useRouter();
+
   // Context values
   const {
     basketProductsContext,
@@ -63,6 +68,11 @@ export default function Basket() {
 
   const togglePaymentForm = async () => {
     setLoading(true);
+
+    if (TEST) {
+      router.push("/thank-you?id=test_stamp_id");
+      return;
+    }
     // products mapped to lineItems -> price and quantity
     const lineItems = products.map((product) => ({
       price: product?.default_price,
