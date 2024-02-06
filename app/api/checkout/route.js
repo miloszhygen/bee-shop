@@ -22,7 +22,7 @@ export async function POST(request) {
     payment_method_types: ["card"],
     line_items: [...lineItems],
     metadata: {
-      user_id: "",
+      userId: "",
       sessionStamp,
     },
     mode: "payment",
