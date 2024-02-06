@@ -249,7 +249,7 @@ export default function Basket() {
                             Card number: 4242 4242 4242 4242
                             <br />
                             For testing purposes write whatever you want in to
-                            the payment fields "Exp date" and CVC
+                            the payment fields &quot;Exp date&quot; and CVC
                           </small>
                           {/* TODO: {errorMessage} */}
                           <button
