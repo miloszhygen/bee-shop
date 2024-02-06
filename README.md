@@ -128,14 +128,28 @@ Stripe cli: https://github.com/stripe/stripe-cli
 - user can see order in profile page
 
 
+# Mongodb
+
+
+```JavaScript
+  // Connectiong to the mongodb
+  import { connectToDatabase } from "@/utils/connectToDatabase";
+
+  const { client } = await connectToDatabase();
+  const db = client.db(`${process.env.MONGODB_CLIENT_DB}`);
+
+  const collection = db.collection(
+    `${process.env.MONGODB_CLIENT_COLLECTION_TRANSACTIONS}`
+  );
+```
+
 
 # Tech used
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
-- github actions
-- tailwindcss
+- github actions- tailwindcss
 - nextjs
 - vercel
 

@@ -14,24 +14,25 @@ Bee Delight
 
 PAYMENT:
 
-- how to connect user to payment?
-  - Can I use the session id or do something in the session endpoint??
+- clean the code
+- work offline
 
-- create a webhook to retrieve the payment and add to user data in database
-  - for now just log the payment data to console
-    - rest comes when login and db is in place
-
-- move endpoint URLS to env variables
-
-- create a failed payment page
-
-- show payment details in thank you page - possible?
-
-- add text on basket under payment button
-  - "By clicking the button you will be redirected to Stripe to complete the payment"
+- set up endpoint and configure database
+- finalize the webhook logic
+  - listen for checkout.session
+    - create a trasanction api endpioint and send data to it
+    - get payment_intent and fetch the payment data
+    - update database with sessionStamp etc
+    - see TODO below
+    - DO NOT set settimeout on the thank you page but on server that fetches the data when page is loading
+- fetch transaction data on thank you page
 
 - ask aidan about sending emails
   - stripe can send an confirmaiton email -> find out how
+
+- add env variables to vercel
+
+- make sure all works without connection to stripe
 
 
 - when creating a pament session add user id to success_url so that it is possible to fetch transaction data for the user? -> use a uuid from nano that is added to the metadata and later added to db for easy fetching? -> when fetching for a transaction: if no user id use uuid?
@@ -46,11 +47,24 @@ PAYMENT:
         qty
         price pr unit
         total
-        total | user_id
+        total
+        user_id
+
 - add a 3 second timeout on the thank you page to make sure that the webhook has time to update the order on the user
   - fetch transaction data based on sessionStamp
 
+- Readme - how to use mongodb and setup
+
+- add version
+- make it work on vercel
+
+- handle failed payment on thank you page
+
+
+
 END PAYMENT
+
+- fetch products from stripe
 
 - add some tailwindui components
   - make sure a11y is taken care of
@@ -82,6 +96,15 @@ END PAYMENT
     - When ordering
 
 ----------------
+
+- add comment on pages on how they work
+  - thank you page
+  - basket
+  - main page
+
+
+- add to readme -> copy and renaming env.local
+  - have these env variables …
 
 - the payment flow
   - if user is not logged in or dont want to register -> how can user see order - link / email?
@@ -147,6 +170,18 @@ END PAYMENT
 
 - all alert calls should be a component
 
+- add mongodb
+  - add transaction from webhook to db
+
+- upidate readme with:
+  - add how to set up stripe
+  - webhook
+  - products
+
+- admin panel (CRUD)
+  - add products
+  - remove products
+  - update products
 
 # Release -> prod
 - create shop tenant in auth0 using the propper name of the app
@@ -175,6 +210,22 @@ END PAYMENT
 #       DONE
 #
 # ====================
+x create a failed payment page
+
+x how to connect user to payment?
+  x Can I use the session id or do something in the session endpoint??
+
+x create a webhook to retrieve the payment and add to user data in database
+  x for now just log the payment data to console
+    x rest comes when login and db is in place
+
+x move endpoint URLS to env variables
+
+x show payment details in thank you page - possible -> yes, use sessionStamp
+
+x add text on basket under payment button
+  x "By clicking the button you will be redirected to Stripe to complete the payment"
+
 x research: how to do a full payment circle with stripe?
   x test the logic
 
