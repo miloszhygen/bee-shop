@@ -2,32 +2,34 @@
 
 import mockProduct from "@/mockData/product";
 import mockPricesList from "@/mockData/prices";
+import Stripe from "stripe";
+
+import { TEST } from "@/config";
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function fetchProductByIdAction(productId) {
-  // Fetch data based on the productId
-  // const stripeData = fetch(`https://api.stripe.com/v1/products/${productId}`, {
-  //   method: "GET",
-  //   headers: {
-  //     Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
-  //   },
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log("data", data);
-  //   });
+  const stripeProductResponse = TEST
+    ? mockProduct
+    : await await stripe.products.retrieve(productId);
 
-  const productResponse = mockProduct;
+  const stripePricesResponse = TEST
+    ? mockPricesList
+    : await stripe.prices.list({
+        active: true,
+        created: { gte: 1706091581 },
+      });
 
-  const price = mockPricesList.data.find(
-    (price) => price?.id === productResponse?.default_price
+  const { data: pricesResponse } = stripePricesResponse;
+
+  const price = pricesResponse.find(
+    (price) => price?.id === stripeProductResponse?.default_price
   );
 
   const productData = {
-    ...productResponse,
+    ...stripeProductResponse,
     price,
   };
-
-  // console.log(productData);
 
   return productData;
 }
