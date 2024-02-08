@@ -7,9 +7,7 @@ const mockProduct = {
   default_price: "price_1OeDV7I4AFOXjzTChrCuNyDq",
   description: "Harvested from wildflowers in the Alpine meadows.",
   features: [],
-  images: [
-    "https://files.stripe.com/links/MDB8YWNjdF8xT0dwc1RJNEFGT1hqelRDfGZsX3Rlc3RfQnZIcHEzNVV3bDlta210RDBLOTFiRXli00JA35wqUI",
-  ],
+  images: ["/images/honey.jpg"],
   livemode: false,
   metadata: {},
   name: "Alpine Blossom Honey",
