@@ -4,7 +4,6 @@ Bee Delight
 
 
 
-
 # ====================
 #
 #       TODOs
@@ -12,57 +11,20 @@ Bee Delight
 # ====================
 
 
-PAYMENT:
-
-- clean the code
 - work offline
-
-- set up endpoint and configure database
-- finalize the webhook logic
-  - listen for checkout.session
-    - create a trasanction api endpioint and send data to it
-    - get payment_intent and fetch the payment data
-    - update database with sessionStamp etc
-    - see TODO below
-    - DO NOT set settimeout on the thank you page but on server that fetches the data when page is loading
-- fetch transaction data on thank you page
-
-- ask aidan about sending emails
-  - stripe can send an confirmaiton email -> find out how
-
-- add env variables to vercel
-
-- make sure all works without connection to stripe
+  - fetch products
 
 
-- when creating a pament session add user id to success_url so that it is possible to fetch transaction data for the user? -> use a uuid from nano that is added to the metadata and later added to db for easy fetching? -> when fetching for a transaction: if no user id use uuid?
-    - ex -> adding the `payment_intent` and use it in the database then fetch it when on the thank you page?
-    - this means that a transactions table has to be created in the database
-      - if user is logged in add user_id to the transaction data, use later to filter all transactions for a user
-    - Product data in db
-        name
-        sessionStamp
-        product id
-        price id
-        qty
-        price pr unit
-        total
-        total
-        user_id
-
-- add a 3 second timeout on the thank you page to make sure that the webhook has time to update the order on the user
-  - fetch transaction data based on sessionStamp
-
-- Readme - how to use mongodb and setup
-
-- add version
-- make it work on vercel
-
-- handle failed payment on thank you page
+- NEXT after: add cypress tests
 
 
 
-END PAYMENT
+
+
+Explain the test mode variable
+- add to env var file
+- add to readme
+
 
 - fetch products from stripe
 
@@ -94,8 +56,33 @@ END PAYMENT
     - When getting products
     - When searching
     - When ordering
+    x loading thank you page
 
 ----------------
+
+- handle failed payment on thank you page
+
+- handle failed product fetching -> show error message
+
+
+PAYMENT:
+  - when creating a pament session add user id to success_url so that it is possible to fetch transaction data for the user? -> use a uuid from nano that is added to the metadata and later added to db for easy fetching? -> when fetching for a transaction: if no user id use uuid?
+      - ex -> adding the `payment_intent` and use it in the database then fetch it when on the thank you page?
+      - this means that a transactions table has to be created in the database
+        - if user is logged in add user_id to the transaction data, use later to filter all transactions for a user
+      - Product data in db
+          name
+          sessionStamp
+          product id
+          price id
+          qty
+          price pr unit
+          total
+          total
+          user_id
+
+- ask aidan about sending emails
+  - stripe can send an confirmaiton email -> find out how
 
 - add comment on pages on how they work
   - thank you page
@@ -210,6 +197,31 @@ END PAYMENT
 #       DONE
 #
 # ====================
+x Readme - how to use mongodb and setup
+
+x add a 3 second timeout on the thank you page to make sure that the webhook has time to update the order on the user
+  x fetch transaction data based on sessionStamp
+
+
+x add version
+x make it work on vercel
+
+x clean the code
+
+x set up endpoint and configure database
+x finalize the webhook logic
+  x listen for checkout.session
+    x create a trasanction api endpioint and send data to it
+    x get payment_intent and fetch the payment data
+    x update database with sessionStamp etc
+    x see TODO below
+    x DO NOT set settimeout on the thank you page but on server that fetches the data when page is loading
+x fetch transaction data on thank you page
+
+x add env variables to vercel
+
+x make sure all works without connection to stripe
+
 x create a failed payment page
 
 x how to connect user to payment?
