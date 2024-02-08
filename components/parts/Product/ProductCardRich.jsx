@@ -20,7 +20,7 @@ const ProductCardLink = ({
 }) => {
   const { images, name, price, description } = product;
 
-  const image = images[0];
+  const image = images?.[0];
 
   return (
     <>

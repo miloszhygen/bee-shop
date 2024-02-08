@@ -20,7 +20,7 @@ const ProductCardLink = ({
   incrementCount,
 }) => {
   const { images, name, price, id } = product;
-  const image = images[0];
+  const image = images?.[0];
 
   return (
     <>
