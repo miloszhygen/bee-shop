@@ -1,3 +1,11 @@
+/*
+
+  Fetches data for a single product from the stripe
+  Fetches all prices from the stripe API.
+  Merges the product and prices into one object.
+
+*/
+
 "use server";
 
 import mockProduct from "@/mockData/product";
