@@ -76,6 +76,7 @@ const CookieMessage = () => {
             </p>
 
             <button
+              id="js_acceptCookies"
               className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
               onClick={handleDismiss}
             >

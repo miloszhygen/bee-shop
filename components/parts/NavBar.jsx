@@ -37,7 +37,7 @@ const NavBar = () => {
         <div className="flex justify-between px-2 h-10">
           {/* <div className="flex items-center mr-2">Login</div> */}
           <div className="flex items-center">
-            <button onClick={showBasket}>
+            <button id="js_basket" onClick={showBasket}>
               Basket ({basketProductsContext.length})
             </button>
           </div>

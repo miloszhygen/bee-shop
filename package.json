@@ -14,8 +14,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "release": "npx bump --commit '🚀 Release v' --tag --push package.json package.json",
-    "cypress:open": "cypress open"
-
+    "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\""
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
@@ -40,6 +40,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
+    "start-server-and-test": "^2.0.3",
     "tailwindcss": "^3.3.0"
   }
 }

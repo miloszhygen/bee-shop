@@ -253,6 +253,7 @@ export default function Basket() {
                           </small>
                           {/* TODO: {errorMessage} */}
                           <button
+                            id="js_goToPayment"
                             className={`mt-4 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-70 ${
                               products.length === 0
                                 ? "opacity-50 cursor-not-allowed"

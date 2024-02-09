@@ -17,13 +17,12 @@ const TransactionData = ({ data }) => {
   }
   return (
     <div className="my-10">
-      <p>
+      <p id="js_orderNumber">
         Order number: <b>{sessionStamp}</b>
       </p>
-      <p>
+      <p id="js_total">
         Total:{" "}
         <b>
-          {" "}
           {amount_subtotal / 100} {currency.toUpperCase()}
         </b>
       </p>
@@ -82,8 +81,10 @@ const ThankYouPage = () => {
   return (
     <div className="thank-you-page">
       IMAGE HAPPY BEE
-      <h1 className=" text-4xl">Great success!</h1>
-      <h2 className=" text-2xl">Thank you for your order!</h2>
+      <h1 id="js_success" className="text-4xl">
+        Great success!
+      </h1>
+      <h2 className="text-2xl">Thank you for your order!</h2>
       <div className="">
         {orderDetails && <TransactionData data={orderDetails?.data} />}
       </div>
