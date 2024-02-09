@@ -4,6 +4,32 @@
   Fetches all prices from the stripe API.
   Merges the product and prices into one object.
 
+
+  returns object:
+
+   {
+    id: 'prod_PQvPprUEDyLZgwe',
+    active: true,
+    created: 1706091581,
+    default_price: 'price_1OeDV7I4AFOXjzTChrCuNyDq',
+    description: 'Harvested from wildflowers in the Alpine meadows test2. bee',
+    images: [ '/images/honey.jpg' ],
+    metadata: { category: 'bee' },
+    name: 'Alpine Blossom Bee 2',
+    updated: 1706091582,
+    ...
+    price: {
+      id: 'price_1OeDV7I4AFOXjzTChrCuNyDq',
+      object: 'price',
+      active: true,
+      currency: 'nok',
+      product: 'prod_PQvPpUEDyLZgwn',
+      unit_amount: 12000,
+      unit_amount_decimal: '12000'
+      ...
+    }
+  }
+
 */
 
 "use server";
