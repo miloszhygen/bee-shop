@@ -13,7 +13,9 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "release": "npx bump --commit '🚀 Release v' --tag --push package.json package.json"
+    "release": "npx bump --commit '🚀 Release v' --tag --push package.json package.json",
+    "cypress:open": "cypress open"
+
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
+    "cypress": "^13.6.4",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
