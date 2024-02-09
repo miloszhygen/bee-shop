@@ -97,6 +97,15 @@ Take a look on how to install the Stripe CLI further down this document
 # Testing
 This project uses jest for testing. To run tests use `npm run test` or `npm run test:watch` to run tests in watch mode.
 
+## End to end testing - Cypress
+This project uses cypress for end to end testing. To run cypress tests use `npm run e2e` to open the cypress GUI.
+
+If you want to run the tests in headless mode use `npm run e2e:headless`. That will run the tests in the terminal.
+
+[https://nextjs.org/docs/app/building-your-application/testing/cypress](https://nextjs.org/docs/app/building-your-application/testing/cypress)
+
+
+
 
 # Deployment
 
@@ -235,8 +244,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 0.1.4 -> Filter on category
 0.1.5 -> Add some nice components from tailwindui
 0.1.6 -> Make the paymant flow work with stripe and add transaction data to mongodb
+0.1.7 -> Fetch data from Stripe
 
 NEXT:
-0.1.7 -> Fetch data from Stripe
 0.1.8 -> Add cypress tests
 0.1.9 -> more tailwindui components
