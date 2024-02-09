@@ -12,12 +12,14 @@ Bee Delight
 
 
 - work offline
-  - fetch products
+  x fetch products
+  - filter products
 
+- On test filder mockdata on category too
 
 - NEXT after: add cypress tests
 
-
+- How to develop on my project
 
 
 
@@ -26,7 +28,7 @@ Explain the test mode variable
 - add to readme
 
 
-- fetch products from stripe
+
 
 - add some tailwindui components
   - make sure a11y is taken care of
@@ -47,10 +49,6 @@ Explain the test mode variable
 
 - move logic to utils
   - create tests
-
-- add node version to pkg.json
-
-- create some more products
 
 - Loading/spinner component
     - When getting products
@@ -100,7 +98,7 @@ PAYMENT:
 
 - make sure UU is taken care of
 
-- create a config file
+
 - Integrate login
 
 - create a mapper for products and prices fetched in action function
@@ -108,17 +106,14 @@ PAYMENT:
 - create util for formatting price
   - show as 120,00 [currency]
 
-- add loader
 
 - make the app white
   - make sure all components are white
   - cookie banner too
 
-- add some nice components from tailwindui
 
 - explain the difference between rich and link product card
 
-- clean the code
 
 - breadcrum navigation
 
@@ -165,6 +160,8 @@ PAYMENT:
   - webhook
   - products
 
+- move product and price fetching to seperate file and import where used
+
 - admin panel (CRUD)
   - add products
   - remove products
@@ -197,6 +194,14 @@ PAYMENT:
 #       DONE
 #
 # ====================
+x fetch products from stripe
+x add node version to pkg.json
+x create some more products
+x create a config file
+x add loader
+x add some nice components from tailwindui
+x clean the code
+
 x Readme - how to use mongodb and setup
 
 x add a 3 second timeout on the thank you page to make sure that the webhook has time to update the order on the user

@@ -1,6 +1,9 @@
 
 A fully working shop with all that is needed to start selling stuff like honey and bees.
 
+A running demo can be found at [https://bee-shop-git-develop-milosz.vercel.app/](https://bee-shop-git-develop-milosz.vercel.app/)
+
+
 # Prerequisites
 
 Node version `18`  is required to run this project. You can use [nvm](https://github.com/nvm-sh/nvm) to install and manage node versions.
@@ -188,7 +191,12 @@ Setting up the webhook in stripe dashboad: TODO:
 - user can see order in profile page
 
 
+
 # Mongodb
+
+TODO: how to set up mongodb
+- login to mongodb
+- get the app
 
 
 ```JavaScript
@@ -227,3 +235,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 0.1.4 -> Filter on category
 0.1.5 -> Add some nice components from tailwindui
 0.1.6 -> Make the paymant flow work with stripe and add transaction data to mongodb
+
+NEXT:
+0.1.7 -> Fetch data from Stripe
+0.1.8 -> Add cypress tests
+0.1.9 -> more tailwindui components
