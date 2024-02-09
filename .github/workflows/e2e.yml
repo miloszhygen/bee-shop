@@ -2,7 +2,7 @@ name: e2e tests
 
 on: push
 env:
-  NEXT_PUBLIC_TEST: ${{ vars.NEXT_PUBLIC_TEST }}
+  NEXT_PUBLIC_TEST: ${{ env.NEXT_PUBLIC_TEST }}
 
 jobs:
   cypress-run:
