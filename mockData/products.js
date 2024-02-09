@@ -63,7 +63,7 @@ const mockProductsList = {
       metadata: {
         category: "honey",
       },
-      name: "Alpine Blossom Honey",
+      name: "Alpine Blossom Honey 5",
       package_dimensions: null,
       shippable: null,
       statement_descriptor: null,

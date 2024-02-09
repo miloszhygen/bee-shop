@@ -94,7 +94,7 @@ const FilterProducts = ({ onFilterHandler }) => {
             className="text-black"
             onChange={searchHandler}
             aria-label="Search products by name or description"
-            placeholder="Search products..."
+            placeholder="Search, ex 'honey' or 'bee'"
           />
           <button type="button" onClick={clearSearch} aria-label="Clear search">
             Clear search
