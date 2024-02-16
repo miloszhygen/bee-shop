@@ -5,7 +5,7 @@ describe("template spec", () => {
     cy.get("#js_addToBasket_prod_PQvPpUEDyLZgwn").click();
     cy.get("#js_basket").click();
     cy.get("#js_goToPayment").click();
-    cy.wait(3000);
+    // cy.wait(3000);
     cy.get("#js_success").should("have.text", "Great success!");
     cy.get("#js_orderNumber").should(
       "have.text",
