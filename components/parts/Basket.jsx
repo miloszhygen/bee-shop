@@ -16,10 +16,16 @@ import {
 } from "@/utils/localStorage";
 
 // STRIPE
-import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = TEST
-  ? {}
-  : loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+let loadStripe = {};
+
+// Load stripe dynamically
+if (!TEST) {
+  import("@stripe/stripe-js").then((Stripe) => {
+    loadStripe = Stripe.loadStripe(
+      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    );
+  });
+}
 
 export default function Basket() {
   const router = useRouter();
@@ -100,7 +106,7 @@ export default function Basket() {
 
     const session = await res.json();
     // Redirect to Stripe Checkout
-    const stripe = await stripePromise;
+    const stripe = await loadStripe;
     const { error } = await stripe.redirectToCheckout({
       sessionId: session.id,
     });
