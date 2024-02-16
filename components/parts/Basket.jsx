@@ -21,9 +21,9 @@ let loadStripe = {};
 // Load stripe dynamically
 if (!TEST) {
   import("@stripe/stripe-js").then((Stripe) => {
-    loadStripe = Stripe.loadStripe(
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-    );
+    // loadStripe = Stripe.loadStripe(
+    //   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    // );
   });
 }
 
