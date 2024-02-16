@@ -2,13 +2,13 @@ name: e2e tests
 
 on: push
 env:
-  NEXT_PUBLIC_TEST: ${{ vars.NEXT_PUBLIC_TEST }}
+  NEXT_PUBLIC_TEST: true
 
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     env:
-      NEXT_PUBLIC_TEST: test
+      NEXT_PUBLIC_TEST: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
