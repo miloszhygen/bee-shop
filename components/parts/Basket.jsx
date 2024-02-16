@@ -76,7 +76,7 @@ export default function Basket() {
     setLoading(true);
 
     if (TEST) {
-      router.push("/thank-you?id=test_stamp_id");
+      router.push("http://localhost:3000/thank-you?id=test_stamp_id");
       return;
     }
     // products mapped to lineItems -> price and quantity
