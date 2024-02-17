@@ -104,6 +104,22 @@ If you want to run the tests in headless mode use `npm run e2e:headless`. That w
 
 [https://nextjs.org/docs/app/building-your-application/testing/cypress](https://nextjs.org/docs/app/building-your-application/testing/cypress)
 
+How to set up tests....
+
+## Accessibility testing - Cypress axe
+...
+
+**HEADS UP:** Cypress in version 13.6.4 and axe in 1.5.0 are not playing along with nextjs version 14.1. If you experience issues do the following:
+
+- stop the app
+- restart the cypress server `npm run e2e`
+- start the app again `npm run dev`
+
+If this does not work:
+
+- stop the cypress server and the app
+- DELETE the `.next` folder
+- start the cypress server and then the app
 
 
 
@@ -234,6 +250,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - stripe
 - mongodb
 - auth0
+
+- cypress -> end to end testing
+- cypress axe -> accessibility testing
 
 
 # Versions:

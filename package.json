@@ -32,11 +32,13 @@
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.2",
     "stripe": "^14.14.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
-    "cypress": "^13.6.4",
+    "cypress": "13.6.4",
+    "cypress-axe": "^1.5.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
