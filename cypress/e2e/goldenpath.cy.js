@@ -1,4 +1,4 @@
-describe("template spec", () => {
+describe("Golden path run", () => {
   it("passes", () => {
     cy.visit("http://localhost:3000/");
     cy.get("#js_acceptCookies").click();
