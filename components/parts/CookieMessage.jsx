@@ -68,7 +68,11 @@ const CookieMessage = () => {
   return (
     <>
       {!hasSeenMessage && (
-        <div className=" bg-black fixed bottom-0 inset-x-0 flex justify-center border-solid border-2 border-white p-4">
+        <div
+          role="region"
+          aria-labelledby="Cookies"
+          className=" bg-black fixed bottom-0 inset-x-0 flex justify-center border-solid border-2 border-white p-4"
+        >
           <div className="text-center">
             <p>
               We use cookies to improve your experience. By using our site, you
@@ -77,7 +81,7 @@ const CookieMessage = () => {
 
             <button
               id="js_acceptCookies"
-              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
+              className="mt-2 px-4 py-2  bg-indigo-600 text-white rounded"
               onClick={handleDismiss}
             >
               Accept our use of cookies 🍪

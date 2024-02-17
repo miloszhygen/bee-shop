@@ -23,6 +23,7 @@ export default function ProductContainer({
 
   async function getProductDataById() {
     const productData = await fetchProductByIdAction(productId);
+    console.log(productData);
     setProduct(productData);
   }
 
@@ -32,7 +33,7 @@ export default function ProductContainer({
   }, []);
 
   if (!product) {
-    return <div>Fetching product...</div>;
+    return <h1>Fetching product...</h1>;
   }
   return (
     <div>
