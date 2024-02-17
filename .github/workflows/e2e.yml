@@ -1,8 +1,6 @@
 name: e2e tests
 
 on: push
-# env:
-#   NEXT_PUBLIC_TEST: true
 
 jobs:
   cypress-run:
