@@ -94,6 +94,7 @@ Take a look on how to install the Stripe CLI further down this document
 - Staging: [bee-shop-git-develop-milosz.vercel.app](bee-shop-git-develop-milosz.vercel.app)
 
 
+
 # Testing
 This project uses jest for testing. To run tests use `npm run test` or `npm run test:watch` to run tests in watch mode.
 
@@ -127,29 +128,15 @@ If this does not work:
 
 - versioning
 
-
-
 ## Staging
-
+...
 ## Production
 ...
 
 
 
----
-# --- NOTES ---
 
 
-
-
-Integrated with
-Stripe
-…
-
-- Installed nextjs `npx create-next-app@latest`
-- added nvm https://github.com/nvm-sh/nvm
-
-- added cookie banner -> how to test?
 
 
 # fetching products from stripe
@@ -236,6 +223,8 @@ TODO: how to set up mongodb
   );
 ```
 
+# Cookie banner
+- to retest the cookie banner clear the cookies in the browser
 
 # Tech used
 
@@ -256,15 +245,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 
 # Versions:
-0.1.0 -> initial commit
-0.1.1 -> show products, show product details, add to basket logic
-0.1.2 -> added localstorage logic and "golden path" flow from selecting product to payment and thank you page
-0.1.3 -> fixed some build issues on vercel
-0.1.4 -> Filter on category
-0.1.5 -> Add some nice components from tailwindui
-0.1.6 -> Make the paymant flow work with stripe and add transaction data to mongodb
-0.1.7 -> Fetch data from Stripe
+- 0.1.0 -> initial commit
+- 0.1.1 -> show products, show product details, add to basket logic
+- 0.1.2 -> added localstorage logic and "golden path" flow from selecting product to payment and thank you page
+- 0.1.3 -> fixed some build issues on vercel
+- 0.1.4 -> Filter on category
+- 0.1.5 -> Add some nice components from tailwindui
+- 0.1.6 -> Make the paymant flow work with stripe and add transaction data to mongodb
+- 0.1.7 -> Fetch data from Stripe
 
 NEXT:
-0.1.8 -> Add cypress tests
-0.1.9 -> more tailwindui components
+- 0.1.8 -> Add cypress tests
+- 0.1.9 -> more tailwindui components
