@@ -9,25 +9,11 @@ Bee Delight
 #       TODOs
 #
 # ====================
-
-
-- work offline
-  x fetch products
-  - filter products
-
-- On test filder mockdata on category too
-
-- NEXT after: add cypress tests
-
-- How to develop on my project
-
-
-
-Explain the test mode variable
-- add to env var file
-- add to readme
-
-
+- Loading/spinner component
+    - When getting products
+    - When searching
+    - When ordering
+    x loading thank you page
 
 
 - add some tailwindui components
@@ -41,22 +27,22 @@ Explain the test mode variable
     - thank you page
     - header
 
-- add end to end tests
-  - add cypress
+- How to work on my project
+Explain the test mode variable
+- add to env var file
+- add to readme
 
 - test UU
   - make it possible to select a product to navigate to the product page
 
 - move logic to utils
   - create tests
+    - create util for formatting price
+      - show as 120,00 [currency]
 
-- Loading/spinner component
-    - When getting products
-    - When searching
-    - When ordering
-    x loading thank you page
 
 ----------------
+- search string needs to be lowercased
 
 - handle failed payment on thank you page
 
@@ -103,8 +89,6 @@ PAYMENT:
 
 - create a mapper for products and prices fetched in action function
 
-- create util for formatting price
-  - show as 120,00 [currency]
 
 
 - make the app white
@@ -178,13 +162,9 @@ PAYMENT:
 
 
 # Improvements
-- add real flow
 - snapshot testing / integration testing
 - error message to user -> ex, payment failed
 - handle validation of forms
-- payment form state could be one state with an object
-  -> but the card component would be third party
-- DISCUSSION: when filtering on category, should search filter on category or on all products?
 - price util that returns price based on currency, adds decimals, and makes sure the price is a number
   -> add good tests
 
@@ -194,6 +174,25 @@ PAYMENT:
 #       DONE
 #
 # ====================
+x NEXT: add cypress tests
+  x golden path -> from selecting product to payment and thank you page
+  x Where do i set the api key and where is it used?
+  x Add variables to production secret
+
+x add end to end tests
+  x add cypress
+
+x payment form state could be one state with an object
+  x -> but the card component would be third party
+
+x add real flow
+
+x work offline
+  x fetch products
+  x filter products
+
+x On test filder mockdata on category too
+
 x fetch products from stripe
 x add node version to pkg.json
 x create some more products
