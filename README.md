@@ -91,9 +91,7 @@ Take a look on how to install the Stripe CLI further down this document
 
 # Vercel
 
-- Staging: [bee-shop-git-develop-milosz.vercel.app](bee-shop-git-develop-milosz.vercel.app)
-
-
+- Staging: [https://bee-shop-git-develop-milosz.vercel.app/](https://bee-shop-git-develop-milosz.vercel.app/)
 
 # Testing
 This project uses jest for testing. To run tests use `npm run test` or `npm run test:watch` to run tests in watch mode.
