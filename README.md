@@ -86,6 +86,11 @@ Take a look on how to install the Stripe CLI further down this document
   # Running the stripe webhook proxy
   npm run stripe
 
+  # Running cypress tests
+  npm run e2e
+
+  # Running cypress tests in headless mode
+  npm run e2e:headless
 ```
 
 
@@ -253,7 +258,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - 0.1.5 -> Add some nice components from tailwindui
 - 0.1.6 -> Make the paymant flow work with stripe and add transaction data to mongodb
 - 0.1.7 -> Fetch data from Stripe
+- 0.1.8 -> Add cypress tests
 
 NEXT:
-- 0.1.8 -> Add cypress tests
 - 0.1.9 -> more tailwindui components
+- 0.2.0 -> add login and profile page

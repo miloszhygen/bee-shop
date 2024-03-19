@@ -9,12 +9,19 @@ Bee Delight
 #       TODOs
 #
 # ====================
+- create white background for the app
+- make the pages look nice
+  - start with thank-you page
+  - the rest
+- make the header look nice
+- make the footer look nice
+- make the search/filter look nice
+
 - Loading/spinner component
     - When getting products
     - When searching
     - When ordering
     x loading thank you page
-
 
 - add some tailwindui components
   - make sure a11y is taken care of
